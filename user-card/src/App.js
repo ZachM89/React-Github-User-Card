@@ -40,9 +40,9 @@ class App extends React.Component {
                 if(this.state.followers.length > 0) {
                     console.log(this.state.followers.length)
                     if(this.state.followers.length === 1){
-                        this.setState({follwerMsg: `Mr popular over here with his ${this.state.followers.length} follower`})
+                        this.setState({follwerMsg: `Mr popular over here with their ${this.state.followers.length} follower`})
                     } else {
-                        this.setState({follwerMsg: `Mr popular over here with his ${this.state.followers.length} followers`})
+                        this.setState({follwerMsg: `Mr popular over here with their ${this.state.followers.length} followers`})
                     }
                 } else {
                     this.setState({follwerMsg: 'LOL this guy has no friends'})
