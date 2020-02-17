@@ -1,5 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -22,23 +21,6 @@ class App extends React.Component {
     handleChanges = e => {
         this.setState({ userText: e.target.value });
         // console.log(e.target.value);
-    }
-
-    componentDidUpdate(prevState) {
-        console.log("componentDidUpdate running");
-
-        if (prevState.dogs !== this.state.dogs) {
-            console.log("Dogs have changed :)");
-
-            if (this.state.dogText === "pomeranian") {
-                console.log("pomeranians :(");
-
-                fetch("https://dog.ceo/api/breed/husky/images")
-                .then(res => res.json())
-                .then(dogs => this.setState({ dogText: "husky", dogs: dogs.message }))
-                .catch(err => console.log("No dogs :(", err));
-            }
-        }
     }
 
     fetchUsers = e => {
