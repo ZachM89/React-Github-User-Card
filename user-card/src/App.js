@@ -69,7 +69,7 @@ class App extends React.Component {
                         //console.log(user)
                         return (
                             <div className="user-card">
-                                <img src={user.avatar_url} alt={user.avatar_url}/> 
+                                <img className="image-size" src={user.avatar_url} alt={user.avatar_url}/> 
                                 <p>{user.login}</p>
                                 <p>{user.name}</p>
                                 <p>{user.location}</p>
