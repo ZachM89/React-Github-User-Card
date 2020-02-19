@@ -2,13 +2,15 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 
+const h3Selector = document.querySelector(".App h3");
+
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
             users: [],
             followers: [],
-            followerMsg: ''
+            followerMsg: 'Search for a user'
         };
     }
 
@@ -40,12 +42,12 @@ class App extends React.Component {
                 if(this.state.followers.length > 0) {
                     console.log(this.state.followers.length)
                     if(this.state.followers.length === 1){
-                        this.setState({follwerMsg: `Mr popular over here with their ${this.state.followers.length} follower`})
+                        this.setState({followerMsg: `Mr popular over here with their ${this.state.followers.length} follower`})
                     } else {
-                        this.setState({follwerMsg: `Mr popular over here with their ${this.state.followers.length} followers`})
+                        this.setState({followerMsg: `Mr popular over here with their ${this.state.followers.length} followers`})
                     }
                 } else {
-                    this.setState({follwerMsg: 'LOL this guy has no friends'})
+                    this.setState({followerMsg: 'LOL this guy has no friends'})
                 }
             })
         //console.log(this.state.users);
@@ -56,12 +58,18 @@ class App extends React.Component {
             <div className="App">
                 <h1>GitHub Users</h1>
                 <div className="search-container">
-                    <input
+                    <div>
+                        <input
                         type="text"
                         value={this.state.userText}
                         onChange={this.handleChanges}
-                    />
-                    <button onClick={this.fetchUsers}>Fetch Users</button>
+                         />
+                    </div>
+                    
+                    <div>
+                        <button onClick={this.fetchUsers}>Fetch Users</button>
+                    </div>
+                    
                 </div>
                 <div className="card-container">
                     {console.log(this.state.followers)}
@@ -70,16 +78,18 @@ class App extends React.Component {
                         return (
                             <div className="user-card">
                                 <img className="image-size" src={user.avatar_url} alt={user.avatar_url}/> 
-                                <p>{user.login}</p>
-                                <p>{user.name}</p>
-                                <p>{user.location}</p>
+                                <div className="user-info">
+                                    <p>{user.login}</p>
+                                    <p>{user.name}</p>
+                                    <p>{user.location}</p>
+                                </div>
                             </div>
                         )
                     })}
                     
                 </div>
                 
-                <h3>{this.state.follwerMsg}</h3>
+                <h3>{this.state.followerMsg}</h3>
                 <div className="followers-container">
                     {console.log(this.state.followers.data)}
                     
